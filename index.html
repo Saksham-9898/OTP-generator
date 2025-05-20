@@ -5,16 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTP Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mediaqueries.css">
 </head>
 <body>
     <div class="container">
-        
         <img src="otp icon.png" alt="OTP Icon" class="otp-image">
-        
         <h2>OTP Generator</h2>
-        <button onclick="generateOTP()"> Click Here To Generate OTP</button>
+        <div class="otp-options">
+            <label for="otp-length">OTP Length:</label>
+            <select id="otp-length">
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+            </select>
+            <label for="otp-type">Type:</label>
+            <select id="otp-type">
+                <option value="numeric">Numeric</option>
+                <option value="alphanumeric">Alphanumeric</option>
+                <option value="hex">Hexadecimal</option>
+            </select>
+        </div>
+        <div class="sameDiv">
+        <button class="btn" onclick="generateOTP()">Generate OTP</button>
+        <div class="otp-actions">
+            <button class="btn" onclick="copyOTP()">Copy OTP</button>
+        </div>
+        </div>
+        <span id="copy-status"></span>
+        <div class="timer-circle">
+            <svg class="timer-svg" width="60" height="60">
+                <circle class="timer-bg" cx="30" cy="30" r="26" />
+                <circle id="timer-fg" class="timer-fg" cx="30" cy="30" r="26" stroke-dasharray="163.36" stroke-dashoffset="0" />
+            </svg>
+        </div>
+        <div id="otp-timer"></div>
         <p>Your OTP will be shown below :- <br><span id="otp"></span></p>
-        
+        <div class="otp-qr-speech">
+            <button class="btn" onclick="showQR()">Show QR</button>
+            <button class="btn" onclick="speakOTP()">🔊 Speak OTP</button>
+        </div>
+        <div id="qr-modal" class="qr-modal" style="display:none;">
+            <div class="qr-modal-content">
+                <span class="qr-close" onclick="closeQR()">&times;</span>
+                <div id="qr-code"></div>
+                <div class="qr-otp-text"><span id="qr-otp-value"></span></div>
+            </div>
+        </div>
     </div>
 
     <script src="otp.js" defer></script>

@@ -1,0 +1,33 @@
+/* Responsive container padding and border distance for all devices */
+@media (max-width: 1200px) {
+  .container {
+    margin-left: 3vw;
+    margin-right: 3vw;
+    max-width: 94vw;
+  }
+}
+@media (max-width: 900px) {
+  .container {
+    margin-left: 4vw;
+    margin-right: 4vw;
+    max-width: 92vw;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    margin-left: 2vw;
+    margin-right: 2vw;
+    max-width: 98vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+}
+@media (max-width: 400px) {
+  .container {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    max-width: 99vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+}

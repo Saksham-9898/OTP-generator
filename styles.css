@@ -1,147 +1,556 @@
+:root {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --primary: #3cbde8;
+  --accent: #22d3ee;
+  --success: #22c55e;
+  --error: #ef4444;
+  --text: #f8fafc;
+  --shadow: rgba(79,70,229,0.4);
+}
+
 /* Body - Gradient Background with Animation */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #a0f0ec, #6888aa);
-    background-size: 300% 300%;
-    animation: bgAnimation 8s infinite alternate;
-    margin: 0;
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: background 0.4s;
+  opacity: 0;
+  animation: fadeInLanding 1.2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+@keyframes fadeInLanding {
+  from {
+    opacity: 0;
+    filter: blur(12px) brightness(0.7);
+    transform: scale(0.98) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: scale(1) translateY(0);
+  }
 }
 
-/* Smooth Background Gradient Animation */
-@keyframes bgAnimation {
-    0% {
-        background-position: left;
-    }
-    100% {
-        background-position: right;
-    }
-}
-
-/* Container with Drop Shadow */
+/* --- Enhanced UI/UX for Best OTP Generator --- */
 .container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    width: 350px;
-    height: 300px;
-
-    animation: fadeIn 2s ease-in-out;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 10px 32px 0 rgba(0,0,0,0.35), 0 2px 8px 0 var(--shadow);
+  max-width: 500px;
+  width: 95vw;
+  margin: 3vh auto 0 auto;
+  padding: 3.5rem 1.5rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.2s, background 0.3s;
+  backdrop-filter: blur(14px) saturate(160%);
+  border: 1.5px solid rgba(34,211,238,0.25);
+  border-image: linear-gradient(135deg, #00F5FF 0%, #8e2de2 100%) 1;
+  overflow: visible;
+  opacity: 0;
+  animation: fadeInContainer 1.2s 0.2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+@keyframes fadeInContainer {
+  from {
+    opacity: 0;
+    filter: blur(18px) brightness(0.7);
+    transform: scale(0.96) translateY(60px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: scale(1) translateY(0);
+  }
+}
+.container:hover {
+  box-shadow: 0 16px 40px 0 var(--shadow), 0 6px 16px rgba(0,0,0,0.25);
+  border: 2.5px solid #00F5FF;
+  background: rgba(255,255,255,0.13);
+  transform: scale(1.025);
 }
 
 /* OTP Icon Animation */
 .otp-image {
-    width: 90px;
-    margin-bottom: 15px;
-    animation: popUp 0.8s ease-in-out;
+  width: 80px;
+  margin-bottom: 1.2rem;
+  border-radius: 0.7rem;
+  background: rgba(34,211,238,0.08);
+  box-shadow: 0 2px 8px var(--shadow);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
+  aspect-ratio: 1/1;
 }
 
 /* Title Animation */
 h2 {
-    margin-bottom: 15px;
-    opacity: 0;
-    animation: slideDown 0.8s ease-in-out forwards;
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1.2rem 0;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 1;
 }
 
-/* Button with Gradient & Glowing Effect */
-button {
-    padding: 12px 22px;
-    border: none;
-    background: linear-gradient(135deg, #ff5722, #d84315);
-    color: white;
-    font-size: 16px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
+/* OTP Options Styles */
+.otp-options {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.otp-options label {
+  font-weight: 60;
+  color: var(--accent);
+  font-size: 1.02rem;
+}
+.otp-options select {
+  background: #192132;
+  color: var(--text);
+  border: 1.5px solid var(--accent);
+  border-radius: 0.5rem;
+  padding: 0.4rem 1.2rem;
+  font-size: 1.05rem;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.2s;
+}
+.otp-options select:focus {
+  border: 2px solid var(--primary);
 }
 
-/* Hover Effect with Glow */
-button:hover {
-    background: linear-gradient(135deg, #f69a7e, #f67777ce);
-    transform: scale(1.05);
-    color: black;
-    box-shadow: 0 0 15px rgba(120, 248, 228, 0.8);
+
+/* Only update button color variables to match the website's bluish theme */
+button, #copy-btn {
+  --color: var(--primary);
+  --color2:black;
+  padding: 0.8em 1.75em;
+  background-color: transparent;
+  border-radius: 6px;
+  border: .3px solid var(--color);
+  transition: .5s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  font-weight: 300;
+  font-size: 17px;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  text-transform: uppercase;
+  color: var(--color);
+  width: 100%;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  box-shadow: 0 2px 8px var(--shadow);
+  letter-spacing: 0.05em;
+  outline: none;
+}
+button::after, button::before, #copy-btn::after, #copy-btn::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: skew(90deg) translate(-50%, -50%);
+  position: absolute;
+  inset: 50%;
+  left: 25%;
+  z-index: -1;
+  transition: .5s ease-out;
+  background-color: var(--color);
+}
+button::before, #copy-btn::before {
+  top: -50%;
+  left: -25%;
+  transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+}
+button:hover::before, #copy-btn:hover::before {
+  transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+}
+button:hover::after, #copy-btn:hover::after {
+  transform: skew(45deg) translate(-50%, -50%);
+}
+button:hover, #copy-btn:hover {
+  color: var(--color2);
+}
+button:active, #copy-btn:active {
+  filter: brightness(.7);
+  transform: scale(.98);
 }
 
-/* Glowing Effect */
-button::after {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background: rgba(246, 145, 145, 0.6);
-    transform: rotate(45deg);
-    transition: 0.5s;
-    opacity: 0;
+/* OTP Actions Styles */
+.otp-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 10px;
 }
 
-button:hover::after {
-    opacity: 1;
+#copy-btn {
+  background: var(--primary);
+  color: var(--text);
+  margin: 0.5rem 0 1.1rem 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 2rem;
+  padding: 1rem 0;
+  width: 100%;
+  display: block;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  letter-spacing: 0.03em;
+  outline: none;
+}
+#copy-btn:hover, #copy-btn:focus {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: var(--text);
+  transform: scale(1.03);
+}
+
+#copy-status {
+  font-size: 1rem;
+  font-weight: 600;
+  min-height: 1.2em;
+  color: var(--success);
+  margin-top: 0.2rem;
+  transition: color 0.2s, opacity 0.2s;
+  opacity: 0;
+  position: absolute;
+  right: 0.7rem;
+  top: 0.7rem;
+  z-index: 2;
+  background: rgba(34,211,238,0.12);
+  padding: 0.4rem 1.2rem;
+  border-radius: 1.2rem;
+  pointer-events: none;
+}
+#copy-status.show {
+  opacity: 1;
+  animation: toastSlideIn 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes toastSlideIn {
+  from { opacity: 0; transform: translateY(-20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* OTP Display Animation */
 p {
-    margin-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    opacity: 0;
-    animation: fadeIn 1.2s ease-in-out 0.5s forwards;
+  margin-top: 18px;
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--text); /* Make the text visible on dark background */
 }
 
 #otp {
-    color: #333;
-    font-size: 22px;
-    font-weight: bold;
-    display: inline-block;
-    opacity: 0;
-    transform: scale(0);
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  color: var(--accent);
+  font-size: 2.3rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  display: block;
+  margin: 1.2rem auto 0 auto;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+  opacity: 1;
+  min-height: 2.5rem;
+  text-shadow: 0 2px 8px var(--shadow);
+  text-align: center;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  animation: otpFadeIn 0.7s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
 /* When OTP is generated */
 .otp-show {
-    opacity: 1 !important;
-    transform: scale(1) !important;
+  opacity: 1 !important;
+  transform: scale(1.1) !important;
+  filter: drop-shadow(0 2px 8px var(--accent));
+}
+@keyframes otpFadeIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1.1); }
 }
 
-/* Animations */
+/* Timer Styles */
+#otp-timer {
+  margin-top: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  min-height: 1.2em;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+  text-align: center;
+  position: relative;
+}
+
+.timer-circle {
+  width: 60px;
+  height: 60px;
+  margin: 0.7rem auto 0.5rem auto;
+  display: block;
+  position: relative;
+}
+.timer-svg {
+  width: 60px;
+  height: 60px;
+  transform: rotate(-90deg);
+}
+.timer-bg {
+  stroke: #334155;
+  stroke-width: 7;
+  fill: none;
+}
+.timer-fg {
+  stroke: var(--accent);
+  stroke-width: 7;
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s linear;
+}
+
+/* QR and Speech Button Styles - Match .btn style and add vertical spacing */
+.otp-qr-speech {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem; /* vertical space between buttons */
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.otp-qr-speech .btn {
+  --color: var(--primary);
+  --color2:black;
+  padding: 0.8em 1.75em;
+  background-color: transparent;
+  border-radius: 6px;
+  border: .3px solid var(--color);
+  transition: .5s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  font-weight: 300;
+  font-size: 17px;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  text-transform: uppercase;
+  color: var(--color);
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  text-align: center;
+}
+.otp-qr-speech .btn::after, .otp-qr-speech .btn::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: skew(90deg) translate(-50%, -50%);
+  position: absolute;
+  inset: 50%;
+  left: 25%;
+  z-index: -1;
+  transition: .5s ease-out;
+  background-color: var(--color);
+}
+.otp-qr-speech .btn::before {
+  top: -50%;
+  left: -25%;
+  transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+}
+.otp-qr-speech .btn:hover::before {
+  transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+}
+.otp-qr-speech .btn:hover::after {
+  transform: skew(45deg) translate(-50%, -50%);
+}
+.otp-qr-speech .btn:hover {
+  color: var(--color2);
+}
+.otp-qr-speech .btn:active {
+  filter: brightness(.7);
+  transform: scale(.98);
+}
+
+/* QR Modal Styles */
+.qr-modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(15,23,42,0.75);
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s;
+}
+.qr-modal-content {
+  background: rgba(255,255,255,0.13);
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px 0 rgba(44,62,80,0.18);
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(12px) saturate(160%);
+  border: 1.5px solid var(--accent);
+}
+.qr-close {
+  position: absolute;
+  top: 0.7rem;
+  right: 1.2rem;
+  font-size: 2rem;
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+.qr-close:hover {
+  color: var(--error);
+}
+#qr-code {
+  margin: 1.2rem 0 0.5rem 0;
+}
+.qr-otp-text {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  letter-spacing: 0.1em;
+}
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.sameDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    
+
 }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .container {
+    max-width: 98vw;
+    padding: 2.2rem 2vw 1.5rem 2vw;
+  }
+  .otp-image {
+    width: 60px;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  .otp-options {
+    gap: 0.7rem;
+    font-size: 1rem;
+  }
+  button, #copy-btn, .otp-qr-speech .btn {
+    font-size: 1rem;
+    padding: 0.8rem 0.5rem;
+    max-width: 98vw;
+  }
+  .otp-qr-speech .btn {
+    max-width: 90vw;
+  }
 }
-
-@keyframes popUp {
-    from {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+@media (max-width: 600px) {
+  .container {
+    padding: 1.2rem 2vw 1.2rem 2vw;
+    border-radius: 1rem;
+    max-width: 99vw;
+  }
+  .otp-image {
+    width: 44px;
+    margin-bottom: 0.7rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+    margin-top: 0.2rem;
+  }
+  .otp-options {
+    gap: 0.4rem;
+    font-size: 0.98rem;
+  }
+  button, #copy-btn, .otp-qr-speech .btn {
+    font-size: 0.98rem;
+    padding: 0.7rem 0.3rem;
+    max-width: 99vw;
+  }
+  .otp-qr-speech .btn {
+    max-width: 95vw;
+  }
+  #otp {
+    font-size: 1.1rem;
+  }
+  .timer-circle, .timer-svg {
+    width: 36px;
+    height: 36px;
+  }
+  .qr-modal-content {
+    padding: 1rem 0.5rem 0.7rem 0.5rem;
+  }
+  #qr-code {
+    width: 90px !important;
+    height: 90px !important;
+  }
+}
+@media (max-width: 400px) {
+  .container {
+    padding: 0.5rem 1vw 0.5rem 1vw;
+    border-radius: 0.7rem;
+  }
+  .otp-image {
+    width: 28px;
+  }
+  h2 {
+    font-size: 0.9rem;
+  }
+  .otp-options label, .otp-options select {
+    font-size: 0.9rem;
+  }
+  button, #copy-btn, .otp-qr-speech .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.2rem;
+    max-width: 99vw;
+  }
+  .otp-qr-speech .btn {
+    max-width: 99vw;
+  }
+  #otp {
+    font-size: 0.9rem;
+  }
+  .timer-circle, .timer-svg {
+    width: 24px;
+    height: 24px;
+  }
 }
