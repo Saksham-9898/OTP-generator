@@ -1,33 +1,163 @@
 /* Responsive container padding and border distance for all devices */
 @media (max-width: 1200px) {
   .container {
-    margin-left: 3vw;
-    margin-right: 3vw;
-    max-width: 94vw;
+    margin: 2rem 3vw; max-width: 94vw; width: 100%;
   }
 }
 @media (max-width: 900px) {
   .container {
-    margin-left: 4vw;
-    margin-right: 4vw;
-    max-width: 92vw;
+    margin: 1.5rem 4vw; max-width: 92vw; width: 100%;
   }
 }
 @media (max-width: 600px) {
   .container {
-    margin-left: 2vw;
-    margin-right: 2vw;
-    max-width: 98vw;
-    padding-left: 2vw;
-    padding-right: 2vw;
+    margin: 1rem 2vw; max-width: 98vw; padding: 1rem 2vw; width: 100%;
   }
 }
 @media (max-width: 400px) {
   .container {
-    margin-left: 1vw;
-    margin-right: 1vw;
-    max-width: 99vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    margin: 0.5rem 1vw; max-width: 99vw; padding: 0.5rem 1vw; width: 100%;
+  }
+}
+
+/* Ultra Small Screens (max-width 320px) */
+@media (max-width: 320px) {
+  .container {
+    margin: 0.5rem; padding: 0.5rem; width: calc(100% - 1rem);
+  }
+  .timer-circle {
+    width: clamp(40px, 10vw, 50px); height: clamp(40px, 10vw, 50px);
+  }
+  .btn, #copy-btn, .otp-qr-speech .btn {
+    padding: 0.5rem 0.8rem; font-size: 0.85rem;
+  }
+  .qr-modal-content {
+    padding: 0.5rem; width: 90%; min-width: 200px;
+  }
+}
+
+/* Small Mobile Screens */
+@media screen and (max-width: 360px) {
+    .container {
+        padding: clamp(0.8rem, 2vw, 1.2rem); margin: 0.5rem; width: calc(100% - 1rem);
+    }
+
+    .timer-circle {
+        width: clamp(40px, 10vw, 50px);
+        height: clamp(40px, 10vw, 50px);
+    }
+
+    .btn, #copy-btn, .otp-qr-speech .btn {
+        width: 100%;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .sameDiv, .otp-qr-speech {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .qr-modal-content {
+        padding: 0.8rem;
+        width: 90%;
+        min-width: 200px;
+    }
+
+    #qr-code {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 180px;
+    }
+}
+
+/* Regular Mobile Screens */
+@media screen and (min-width: 361px) and (max-width: 480px) {
+    .container {
+        padding: clamp(1rem, 3vw, 1.5rem); width: 100%;
+    }
+
+    .timer-circle {
+        width: clamp(45px, 12vw, 60px);
+        height: clamp(45px, 12vw, 60px);
+    }
+
+    .btn, #copy-btn, .otp-qr-speech .btn {
+        padding: 0.6rem 1rem;
+        min-width: clamp(100px, 40vw, 150px);
+    }
+
+    .sameDiv, .otp-qr-speech {
+        gap: 0.6rem;
+    }
+}
+
+/* Tablet Screens */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .container {
+        padding: clamp(1.2rem, 4vw, 1.8rem); width: 100%;
+    }
+
+    .timer-circle {
+        width: clamp(50px, 10vw, 70px);
+        height: clamp(50px, 10vw, 70px);
+    }
+
+    .btn, #copy-btn, .otp-qr-speech .btn {
+        padding: 0.7rem 1.2rem;
+    }
+
+    #qr-code {
+        width: clamp(180px, 35vw, 280px) !important;
+        height: clamp(180px, 35vw, 280px) !important;
+    }
+}
+
+/* Landscape Mode */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    .container {
+        margin: 0.5rem auto; padding: 0.8rem; width: 100%;
+    }
+
+    .timer-circle {
+        width: clamp(40px, 8vw, 45px);
+        height: clamp(40px, 8vw, 45px);
+        margin: 0.5rem auto;
+    }
+
+    .sameDiv, .otp-qr-speech {
+        gap: 0.5rem;
+        margin: 0.5rem 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn, #copy-btn, .otp-qr-speech .btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    #qr-code {
+        width: clamp(100px, 25vw, 160px) !important;
+        height: clamp(100px, 25vw, 160px) !important;
+    }
+}
+
+/* Medium screens and tablets */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: clamp(1.5rem, 5vw, 2rem);
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 769px) {
+  .container {
+    padding: clamp(1.8rem, 5vw, 2.5rem); width: 100%;
+  }
+  
+  .qr-modal-content {
+    min-width: clamp(280px, 25vw, 380px);
   }
 }

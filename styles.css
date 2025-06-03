@@ -38,24 +38,21 @@ body {
 
 /* --- Enhanced UI/UX for Best OTP Generator --- */
 .container {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  box-shadow: 0 10px 32px 0 rgba(0,0,0,0.35), 0 2px 8px 0 var(--shadow);
-  max-width: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: clamp(1rem, 3vw, 2rem);
+  box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.18);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  max-width: min(90%, 500px);
+  width: 100%;
+  margin: 2rem auto;
+  text-align: center;
+  backdrop-filter: blur(12px) saturate(180%);
+  border: 1.5px solid var(--accent);
   height: auto;
   min-height: 400px;
   max-height: 90vh;
-  width: 95vw;
-  margin: 2vh auto 2vh auto;
-  padding: 4rem 1.5rem 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
   transition: box-shadow 0.3s, transform 0.2s, background 0.3s;
-  backdrop-filter: blur(14px) saturate(160%);
-  border: 1.5px solid rgba(34,211,238,0.25);
-  border-image: linear-gradient(135deg, #00F5FF 0%, #8e2de2 100%) 1;
   overflow: visible;
   opacity: 0;
   animation: fadeInContainer 1.2s 0.2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
@@ -81,8 +78,9 @@ body {
 
 /* OTP Icon Animation */
 .otp-image {
-  width: 80px;
-  margin-bottom: 1.2rem;
+  width: clamp(60px, 15vw, 100px);
+  height: auto;
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
   border-radius: 0.7rem;
   background: rgba(34,211,238,0.08);
   box-shadow: 0 2px 8px var(--shadow);
@@ -97,43 +95,33 @@ body {
 
 /* Title Animation */
 h2 {
-  font-family: 'Poppins', 'Inter', Arial, sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0.5rem 0 1.2rem 0;
-  color: var(--text);
-  letter-spacing: 0.02em;
-  position: relative;
-  z-index: 1;
+  color: var(--primary);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
 }
 
 /* OTP Options Styles */
 .otp-options {
   display: flex;
-  gap: 1.2rem;
-  margin-bottom: 1.5rem;
-  align-items: center;
-  width: 100%;
+  flex-wrap: wrap;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
   justify-content: center;
+  align-items: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
 }
 .otp-options label {
-  font-weight: 60;
-  color: var(--accent);
-  font-size: 1.02rem;
+  color: var(--primary);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  margin-right: 0.5rem;
 }
 .otp-options select {
-  background: #192132;
-  color: var(--text);
-  border: 1.5px solid var(--accent);
+  padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.8rem);
   border-radius: 0.5rem;
-  padding: 0.4rem 1.2rem;
-  font-size: 1.05rem;
-  font-family: inherit;
-  outline: none;
-  transition: border 0.2s;
-}
-.otp-options select:focus {
-  border: 2px solid var(--primary);
+  border: 1px solid var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--primary);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  cursor: pointer;
 }
 
 
@@ -156,7 +144,6 @@ button, #copy-btn {
   text-transform: uppercase;
   color: var(--color);
   width: 100%;
-  max-width: 340px;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -226,11 +213,11 @@ button:active, #copy-btn:active {
 }
 
 #copy-status {
-  font-size: 1rem;
-  font-weight: 600;
-  min-height: 1.2em;
+  font-size: clamp(0.8rem, 1.8vw, 1rem);
   color: var(--success);
-  margin-top: 0.2rem;
+  display: block;
+  margin: clamp(0.5rem, 1vw, 0.8rem) 0;
+  min-height: 1.2em;
   transition: color 0.2s, opacity 0.2s;
   opacity: 0;
   position: absolute;
@@ -260,12 +247,12 @@ p {
 }
 
 #otp {
-  color: var(--accent);
-  font-size: 2.3rem;
-  font-weight: 800;
-  letter-spacing: 0.25em;
   display: block;
-  margin: 1.2rem auto 0 auto;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: bold;
+  color: var(--accent);
+  margin: clamp(0.5rem, 2vw, 1rem) 0;
+  letter-spacing: clamp(2px, 0.5vw, 4px);
   background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -293,8 +280,8 @@ p {
 
 /* Timer Styles */
 #otp-timer {
-  margin-top: 1.2rem;
-  font-size: 1.1rem;
+  margin-top: clamp(0.8rem, 2vw, 1.2rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   font-weight: 600;
   color: var(--accent);
   min-height: 1.2em;
@@ -305,25 +292,27 @@ p {
 }
 
 .timer-circle {
-  width: 60px;
-  height: 60px;
-  margin: 0.7rem auto 0.5rem auto;
-  display: block;
+  width: clamp(45px, 12vw, 60px);
+  height: clamp(45px, 12vw, 60px);
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 .timer-svg {
-  width: 60px;
-  height: 60px;
+  width: 100%;
+  height: 100%;
   transform: rotate(-90deg);
 }
 .timer-bg {
   stroke: #334155;
-  stroke-width: 7;
+  stroke-width: clamp(3px, 0.8vw, 5px);
   fill: none;
 }
 .timer-fg {
   stroke: var(--accent);
-  stroke-width: 7;
+  stroke-width: clamp(3px, 0.8vw, 5px);
   fill: none;
   stroke-linecap: round;
   transition: stroke-dashoffset 0.3s linear;
@@ -332,12 +321,11 @@ p {
 /* QR and Speech Button Styles - Match .btn style and add vertical spacing */
 .otp-qr-speech {
   display: flex;
-  flex-direction: column;
-  gap: 1.1rem; /* vertical space between buttons */
-  width: 100%;
+  flex-wrap: wrap;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
   justify-content: center;
-  align-items: center;
-  margin-bottom: 1.2rem;
+  width: 100%;
+  margin-top: clamp(1rem, 2vw, 1.5rem);
 }
 .otp-qr-speech .btn {
   --color: var(--primary);
@@ -365,6 +353,7 @@ p {
   justify-content: center;
   white-space: nowrap;
   text-align: center;
+  gap: 0.5rem;
 }
 .otp-qr-speech .btn::after, .otp-qr-speech .btn::before {
   content: '';
@@ -411,9 +400,11 @@ p {
 }
 .qr-modal-content {
   background: rgba(255,255,255,0.13);
-  border-radius: 1.2rem;
+  border-radius: clamp(0.8rem, 2vw, 1.2rem);
   box-shadow: 0 8px 32px 0 rgba(44,62,80,0.18);
-  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  max-width: min(90vw, 400px);
+  width: fit-content;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -423,9 +414,9 @@ p {
 }
 .qr-close {
   position: absolute;
-  top: 0.7rem;
-  right: 1.2rem;
-  font-size: 2rem;
+  top: clamp(0.5rem, 1.5vw, 0.7rem);
+  right: clamp(0.8rem, 2vw, 1.2rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   color: var(--accent);
   cursor: pointer;
   font-weight: 700;
@@ -435,14 +426,15 @@ p {
   color: var(--error);
 }
 #qr-code {
-  margin: 1.2rem 0 0.5rem 0;
+  margin: clamp(0.8rem, 2vw, 1.2rem) 0 clamp(0.3rem, 1vw, 0.5rem) 0;
+  width: clamp(150px, 50vw, 250px) !important;
+  height: clamp(150px, 50vw, 250px) !important;
 }
 .qr-otp-text {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: var(--primary);
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-top: 0.5rem;
-  letter-spacing: 0.1em;
+  text-align: center;
 }
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -485,7 +477,15 @@ p {
   .otp-qr-speech .btn {
     max-width: 90vw;
   }
+  .timer-circle {
+    margin: 0.5rem auto;
+  }
+  
+  .qr-modal-content {
+    padding: clamp(0.8rem, 2vw, 1.5rem);
+  }
 }
+
 @media (max-width: 600px) {
   .container {
     padding: 1.2rem 2vw 1.2rem 2vw;
@@ -520,13 +520,10 @@ p {
     height: 36px;
   }
   .qr-modal-content {
-    padding: 1rem 0.5rem 0.7rem 0.5rem;
-  }
-  #qr-code {
-    width: 90px !important;
-    height: 90px !important;
+    padding: 1rem;
   }
 }
+
 @media (max-width: 400px) {
   .container {
     padding: 0.5rem 1vw 0.5rem 1vw;
@@ -555,5 +552,13 @@ p {
   .timer-circle, .timer-svg {
     width: 24px;
     height: 24px;
+  }
+  .qr-modal-content {
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+  }
+  
+  #qr-code {
+    margin: 0.5rem 0;
   }
 }
